@@ -3,7 +3,7 @@
 namespace GaussQuadrature
 {
 
-    class Legendre
+    public class Legendre
     {
         double x2p = 1 / Math.Sqrt(3);
         double x2m = -1 / Math.Sqrt(3);
@@ -50,7 +50,7 @@ namespace GaussQuadrature
             );
         }
     }
-    class Hermite
+    public class Hermite
     {
         double x2p = 1 / Math.Sqrt(2);
         double x2m = -1 / Math.Sqrt(2);
@@ -81,13 +81,13 @@ namespace GaussQuadrature
             return w3n * f(x3n) +
                    w3f * (f(x3fp) + f(x3fm));
         }
-        double FourthDegree(Func<double, double> f)
+        public double FourthDegree(Func<double, double> f)
         {
             return w4f1 * (f(x4f1p) + f(x4f1m)) +
                    w4f2 * (f(x4f2p) + f(x4f2m));
         }
     }
-    class Laguerre
+    public class Laguerre
     {
         double x2p = 2 + Math.Sqrt(2);
         double w2p = (1 / 4) * (2 - Math.Sqrt(2));
@@ -125,7 +125,7 @@ namespace GaussQuadrature
                    w4f3 * f(x4f3) + w4f4 * f(x4f4);
         }
     }
-    class Chebyshev
+    public class Chebyshev
     {
         double x2p = 1 / Math.Sqrt(2);
         double x2m = -1 / Math.Sqrt(2);
