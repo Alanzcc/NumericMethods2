@@ -4,7 +4,7 @@ namespace NewtonCotes
     // AS formulas fechadas sao todas utilizando as versoes compostas das regras para melhores aproximacoes.
     class Closed
     {
-        double Trapezoidal(Func<double, double> f, double a, double b, int n)
+        public double Trapezoidal(Func<double, double> f, double a, double b, int n)
         {
             double s = f(a) + f(b);
             double h = (b - a) / n;
@@ -15,7 +15,7 @@ namespace NewtonCotes
 
             return s * h;
         }
-        double Simpson(Func<double, double> f, double a, double b, int n)
+        public double Simpson(Func<double, double> f, double a, double b, int n)
         {
             double s = f(a) + f(b);
             double h = (b - a) / n;
@@ -31,7 +31,7 @@ namespace NewtonCotes
             }
             return s * (h / 3);
         }
-        double ThreeEighthsSimpson(Func<double, double> f, double a, double b, int n)
+        public double ThreeEighthsSimpson(Func<double, double> f, double a, double b, int n)
         {
             double s = f(a) + f(b);
             double h = (b - a) / n;
@@ -47,7 +47,7 @@ namespace NewtonCotes
             }
             return s * ((3 * h) / 8);
         }
-        double Boole(Func<double, double> f, double a, double b, int n)
+        public double Boole(Func<double, double> f, double a, double b, int n)
         {
             double s = 7 * f(a) + 7 * f(b);
             double h = (b - a) / n;
@@ -70,7 +70,7 @@ namespace NewtonCotes
     // Nas formulas abertas foi usado recursao com medicao de erro para obter a composicao e, assim, melhores aproximacoes
     class Open
     {
-        double FirstDegree(Func<double, double> f, double a, double b, double e)
+        public double FirstDegree(Func<double, double> f, double a, double b, double e)
         {
             double h = (b - a) / 2;
             double integral = 2 * h * f(a + h);
@@ -92,7 +92,7 @@ namespace NewtonCotes
             return leftSide + rightSide;
 
         }
-        double SecondDegree(Func<double, double> f, double a, double b, double e)
+        public double SecondDegree(Func<double, double> f, double a, double b, double e)
         {
             double h = (b - a) / 3;
             double integral = 1.5 * h * (f(a + h) + f(a + 2 * h));
@@ -114,7 +114,7 @@ namespace NewtonCotes
             double rightSide = FirstDegree(f, mid, b, ne);
             return leftSide + rightSide;
         }
-        double ThirdDegree(Func<double, double> f, double a, double b, double e)
+        public double ThirdDegree(Func<double, double> f, double a, double b, double e)
         {
             double h = (b - a) / 4;
             double integral = (4 / 3) * h * (2 * f(a + h) - f(a + 2 * h) + 2 * f(a + 3 * h));
@@ -135,7 +135,7 @@ namespace NewtonCotes
             double rightSide = FirstDegree(f, mid, b, ne);
             return leftSide + rightSide;
         }
-        double FourthDegree(Func<double, double> f, double a, double b, double e)
+        public double FourthDegree(Func<double, double> f, double a, double b, double e)
         {
             double h = (b - a) / 5;
             double integral = (5 / 24) * h * (2 * f(a + h) - f(a + 2 * h) + 2 * f(a + 3 * h));

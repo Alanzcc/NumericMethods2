@@ -23,7 +23,7 @@ namespace GaussQuadrature
         double x4f2m = -Math.Sqrt((3 + 2 * Math.Sqrt(6 / 5)) / 7);
         double w4m = (18 - Math.Sqrt(30)) / 36;
 
-        double SecondDegree(Func<double, double> f, double a, double b, double s)
+        public double SecondDegree(Func<double, double> f, double a, double b, double s)
         {
             return ((b - a) / 2) * (
                 f((b - a) / 2 * x2p + (b + a) / 2) * w2 +
@@ -31,7 +31,7 @@ namespace GaussQuadrature
             );
         }
 
-        double ThirdDegree(Func<double, double> f, double a, double b, double s)
+        public double ThirdDegree(Func<double, double> f, double a, double b, double s)
         {
             return ((b - a) / 2) * (
                 f((b - a) / 2 * x3n + (b + a) / 2) * w3n +
@@ -40,7 +40,7 @@ namespace GaussQuadrature
             );
         }
 
-        double FourthDegree(Func<double, double> f, double a, double b, double s)
+        public double FourthDegree(Func<double, double> f, double a, double b, double s)
         {
             return ((b - a) / 2) * (
                 f((b - a) / 2 * x4f1p + (b + a) / 2) * w4p +
@@ -69,14 +69,14 @@ namespace GaussQuadrature
         double x4f2m = -Math.Sqrt((3.0 - Math.Sqrt(6)) / 2.0);
         double w4f2 = Math.Sqrt(Math.PI) / (12 - 4.0 * Math.Sqrt(6));
 
-        double SecondDegree(Func<double, double> f)
+        public double SecondDegree(Func<double, double> f)
         {
             return w2 * (
                 f(x2p) +
                 f(x2m)
             );
         }
-        double ThirdDegree(Func<double, double> f)
+        public double ThirdDegree(Func<double, double> f)
         {
             return w3n * f(x3n) +
                    w3f * (f(x3fp) + f(x3fm));
@@ -111,7 +111,7 @@ namespace GaussQuadrature
         double w4f4 = 0.0005392945;
 
 
-        double SecondDegree(Func<double, double> f)
+        public double SecondDegree(Func<double, double> f)
         {
             return w2p * f(x2p) + w2m * f(x2m);
         }
@@ -119,7 +119,7 @@ namespace GaussQuadrature
         {
             return w3f1 * f(x3f1) + w3f2 * f(x3f2) + w3f3 * f(x3f3);
         }
-        double FourthDegree(Func<double, double> f)
+        public double FourthDegree(Func<double, double> f)
         {
             return w4f1 * f(x4f1) + w4f2 * f(x4f2) +
                    w4f3 * f(x4f3) + w4f4 * f(x4f4);
@@ -142,7 +142,7 @@ namespace GaussQuadrature
         double x4f2m = -Math.Sqrt(2 - Math.Sqrt(2)) / 2.0;
         double w4 = Math.PI / 4;
 
-        double SecondDegree(Func<double, double> f)
+        public double SecondDegree(Func<double, double> f)
         {
 
             return w2 * (
@@ -151,7 +151,7 @@ namespace GaussQuadrature
             );
         }
 
-        double ThirdDegree(Func<double, double> f)
+        public double ThirdDegree(Func<double, double> f)
         {
             return w3 * (
                 f(x3n) +
@@ -159,7 +159,7 @@ namespace GaussQuadrature
                 f(x3m)
             );
         }
-        double FourthDegree(Func<double, double> f)
+        public double FourthDegree(Func<double, double> f)
         {
             return w4 * (
                 f(x4f1p) +

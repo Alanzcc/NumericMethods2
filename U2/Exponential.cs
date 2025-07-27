@@ -2,7 +2,7 @@ using GaussQuadrature;
 using System;
 class Exponential
 {
-    double Simple(Func<double, double> f, double a, double b)
+    public double Simple(Func<double, double> f, double a, double b)
     {
         Func<double, double> ex = s => Math.Exp(Math.Pow(s, 2));
         Func<double, double> f_dash = s => f(((a + b) / 2 + ((b - a) / 2) * Math.Tanh(s)));
@@ -12,7 +12,7 @@ class Exponential
         return gh.FourthDegree(f_two_dash);
 
     }
-    double Double(Func<double, double> f, double a, double b)
+    public double Double(Func<double, double> f, double a, double b)
     {
         Func<double, double> ex = s => Math.Exp(Math.Pow(s, 2));
         Func<double, double> f_dash = s => f((a + b) / 2 + ((b - a) / 2) * Math.Tanh((Math.PI / 2) * Math.Sinh(s)));
